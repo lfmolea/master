@@ -1,0 +1,1 @@
+INSERT INTO book (title, author,publisher,publicationDate) VALUES ('Lufuno', 'Molea','dell','20190307');

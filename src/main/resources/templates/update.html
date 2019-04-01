@@ -1,0 +1,74 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+<head th:replace="common/header::common-header" />
+<body>
+
+	<div th:replace="common/header :: navbar" />
+
+	<div class="container">
+		<div class="row">
+
+			<form class="form-horizontal" th:action="@{/book/updateBook}" method="post"
+				enctype="multipart/form-data">
+				<fieldset>
+
+					<legend class="center-block">Update Book Information<span style="font-size: small">* is required</span></legend>
+					
+
+					<!-- title -->
+					<div class="form-group">
+						<label for="title">* Title</label> 
+						<div class="col-xs-8"><input type="text"
+							class="form-control" id="title" th:value="${book.title}"
+							required="required" placeholder="Title" /> <span
+							class="help-block">Title of the book</span>
+					</div>
+					</div>
+					<!-- author -->
+					<div class="form-group">
+						<label for="author">* Author</label> 
+						<div class="col-xs-8"><input type="text"
+							name="author" class="form-control" id="author"
+							th:value="${book.author}" required="required"
+							placeholder="Author" /> <span class="help-block">Author
+							of the book</span>
+					</div>
+					</div>
+					<!-- Publisher -->
+					<div class="form-group">
+						<label for="publisher">Publisher</label> 
+						<div class="col-xs-8"><input type="text"
+							name="publisher" class="form-control" id="author"
+							th:value="${book.publisher}" placeholder="Publisher" /> <span
+							class="help-block">Publisher of the book</span>
+					</div>
+					</div>
+
+					<!-- Publication Date -->
+					<div class="form-group">
+						<label for="publicationDate">Publication Date</label>
+						<div class="col-xs-8"> <input
+							type="Date" class="form-control" id="author"
+							name="publicationDate" th:value="${book.publicationDate}"
+							placeholder="publicationDate" /> <span class="help-block">Publication
+							Date of the book</span>
+					</div>
+					</div>
+					
+								<div class="form-group">
+								<button type="submit" class="btn btn-success">Update book</button>
+								<a class="btn btn-danger" th:href="@{/book/bookInfor(id = ${book.id})}">Cancel </a>
+								</div>
+				</fieldset>
+			</form>
+		
+	</div>
+	<!--  end of container -->
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<div th:replace="common/header :: body-bottom-scripts"></div>
+</body>
+</html>
